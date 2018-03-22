@@ -1,0 +1,49 @@
+body {
+    text-align: center;
+}
+
+.wrapper {
+    width: 50%;
+    margin: 0, auto;
+}
+
+.calculator {
+    display:flex
+    
+}
+
+.btn {
+    border: solid 1px;
+    font-family: Orbitron, sans-serif;
+    color: white;
+    background-color: grey;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-content: center;
+}
+
+#disp {
+    flex: 3;
+    background-color: black;
+    color: green;
+}
+
+.topRow {
+    order: 1;
+}
+
+.secondRow {
+    order: 2;
+}
+
+.thirdRow {
+    order: 3;
+}
+
+.fourthRow {
+    order: 4;
+}
+
+.fifthRow {
+    order: 5;
+}
