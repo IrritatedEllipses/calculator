@@ -1,48 +1,109 @@
-var operator = ""
 var currentNum = ""
 var newNum = ""
+var operator = ""
+var operatorState = false
 var calcMain = document.querySelector('.calculator')
+var disp = document.getElementById('disp')
+var dispValue = ""
+var state = ""
 
-// Take in a number
-// Make sure to take in multiple numbers
+// Take input
 calcMain.addEventListener('click', function(event){
-    if(event.target.id ===)
+    let target = event.target
+    if (target.className === "btn" && currentNum.length < 8) {
+        if (operator === false) {
+            currentNum += target.innerText;
+            disp.innerText = currentNum;
+            return currentNum; 
+        }
+        else {
+            newNum += target.innerText;
+            disp.innerText = newNum;
+            return newNum;
+        }
+    }
+    else if (target.className === "opbtn" && operatorState == false) {
+        disp.textContent = operator
+        operator = target.id;
+        return operator;
+    }
+    else if (target.id === "btnclr") {
+        disp.innerText = ""
+        currentNum = ""
+        newNum = ""
+        operatorState = false
+        return currentNum;
+        return operator;
+    }
+    else if (target.id === "eq") {
+        return operation(currentNum, newNum, operator)
+        
+    }
+    
 })
 
-// Take in an operation for the number
-// If an operator is pressed twice, ignore the second press
-
-// Take in a second number
 
 // Perform operation on both numbers
+
+function operation(a, b, op) {
+    
+    switch (operator){
+        case "add":
+        disp.innerText = add(a,b);
+        return dispValue = add(a, b);
+        operator = "";
+        return operator;
+        currentNum = state;
+        return currentNum;
+        break;
+
+        case "sub":
+        disp.innerText = sub(a,b);
+        return dispValue = sub(a, b);
+        operator = "";
+        return operator;
+        break;
+
+        case "mult":
+        disp.innerText = mult(a,b);
+        return dispValue = mult(a, b);
+        operator = "";
+        return operator;
+        break;
+
+        case "divide":
+        disp.innerText = divide(a,b);
+        return dispValue = divide(a, b);
+        operator = "";
+        return operator;
+        break;
+    }
+}
+
 function add(a, b) {
-    return a + b
+    state = Number(a) + Number(b)
+    return state
 }
 
 function sub(a, b) {
-    return a - b
+    state =  a - b
+    return state
 }
 
 function mult(a, b) {
-    return a * b
+    state = a * b
+    return state
 }
 
 function divide(a, b) {
-    return a / b
+    if (b == 0) {
+        disp.innerText = "Error"
+    }
+    else {
+    state = a / b
+    return state
+    }
 }
-// Disallow dividing by zero
 
-// Display results
-// Display only to the 8th decimal place
 
 // Clear the number 
-
-// Disallow dividing by Zero
-
-
-
-
-
-calcMain.addEventListener('click', function(event){
-    if(event.target.id ===)
-})
